@@ -30,3 +30,32 @@ chatButton.addEventListener('click', () => {
 
   activeChatContainer = !activeChatContainer;
 });
+
+let displayFrame=document.getElementById("stream__box")
+let videoFrames=document.getElementsByClassName("video__container")
+let userIdDisplayFrame= null;
+
+let expandvideoFrame=(e)=>{
+  let child = displayFrame.children[0]
+  if(child){
+    document.getElementById("stream__container").appendChild(child)
+  }
+  display.Frame.style.display = "block"
+  displayFrame.appendChild(e.currentTarget)
+  userIdDisplayFrame = e.currentTarget.display
+
+  for (let i=0; videoFrames.lenght>i;i++){
+    if(videoFrames[i].id!=userIdDisplayFrame){
+
+    
+    videoFrames[i].style.height="100px"
+    videoFrames[i].style.width="100px"
+  }
+}
+
+
+}
+
+for (let i=0; videoFrames.lenght>i;i++){
+  videoFrames[i].addEventListener("click",expandvideoFrame)
+}
