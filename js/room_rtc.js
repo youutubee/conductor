@@ -31,7 +31,9 @@ let joinRoomInit = async()=>{
 }
 
 let joinStream=async()=>{
-    localTracks = await AgoraRTC.createMicrophoneAndCameraTracks()
+    localTracks = await AgoraRTC.createMicrophoneAndCameraTracks({},{encoderConfig:{width:{min:640,iddal:1920,max:1920},
+        height:{min:480,iddal:1080,max:1080}
+    }})
 
     let player =`<div class="video__container" id="user-container-${uid}">
     <div class="video-player" id="user-${uid}"></div>
@@ -67,5 +69,32 @@ let handleUserLeft = async(user)=>{
     document.getElementById(`user-container-${user.uid}`).remove()
 }
 
+let toggleMic= async(e)=>{
+    let button =e.currentTarget
+
+    if(localTracks[1].muted){
+        await localTracks[0].setMuted(false)
+        button.classList.add('active')
+    }
+    else{
+        await localTracks[0].setMuted(true)
+        button.classList.remove('active')
+    }
+}
+
+let toggleCamera= async(e)=>{
+    let button =e.currentTarget
+
+    if(localTracks[1].muted){
+        await localTracks[1].setMuted(false)
+        button.classList.add('active')
+    }
+    else{
+        await localTracks[1].setMuted(true)
+        button.classList.remove('active')
+    }
+}
+document.getElementById("camera-btn").addEventListener("click",toggleCamera)
+document.getElementById("mic-btn").addEventListener("click",toggleMic)
 
 joinRoomInit()
