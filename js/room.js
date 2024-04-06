@@ -51,11 +51,11 @@ let expandvideoFrame=(e)=>{
     videoFrames[i].style.height="100px"
     videoFrames[i].style.width="100px"
   }
-}
+  
 
 
 }
 
 for (let i=0; videoFrames.lenght>i;i++){
   videoFrames[i].addEventListener("click",expandvideoFrame)
-}
+}}

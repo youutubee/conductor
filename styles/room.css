@@ -194,7 +194,22 @@
   cursor: pointer;
   overflow: hidden;
   height: 300px;
-  width: 400px;
+  width: 500px;
+  background-image:url("/images/logo.png") ;
+  background-repeat: no-repeat;
+  background-position:center ;
+  background-size:75px ;
+}
+#stream__box .video__container{
+  border: 2px solid black;
+  border-radius: 0;
+  height: 100%!important;
+  width: 100%!important;
+  background-size: 300px;
+}
+#stream__box video{
+  border-radius: 0;
+
 }
 
 .video-player{
@@ -203,7 +218,7 @@
   
 }
 .video-player video{
-  background-color: red;
+  background-color: black;
   border-radius:5px;
 }
 @media (max-width: 1400px) {
